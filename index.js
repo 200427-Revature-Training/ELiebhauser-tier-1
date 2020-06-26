@@ -33,13 +33,3 @@ function arraySum(x) {
 }
 myArray = [1, 2, 6];
 console.log(arraySum(myArray));
-
-function parameterTest(...array) {
-    console.log(a,b);
-}
-
-parameterTest(1, 2);
-parameterTest(1); // Any variable not present is considered undefined
-parameterTest(1, 2, 3);
-// The rest operator gathers extra values into an array
-parameterTest(1, 2, 3, 4, 5, 6, 7);
