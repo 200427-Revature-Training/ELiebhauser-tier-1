@@ -10,24 +10,15 @@ console.log(`The type of ${newNum} is ${dataType(newNum)}`);
 console.log(`The type of ${newString} is ${dataType(newString)}`);
 
 //Problem B
-function varProduct (a, b, c) {
-
-    if (c) {
-        console.log(`multiplying ${a}, ${b}, and ${c}`)
-    }
-    if (b && !c) {
-        c = 1
-        console.log(`multiplying ${a} and ${b}`)
-    }
-    if (!b) {
-        return "please provide at least 2 numbers to multiply"
-    }
-    return a*b*c
+function varProduct (...array) {
+    return array.reduce((a, b) => {
+        return a * b;
+    });   
 }
-console.log(varProduct());
-console.log(varProduct(2));
-console.log(varProduct(2, 10));
-console.log(varProduct(2, 10, 100));
+console.log(varProduct (2));
+console.log(varProduct (2, 2));
+console.log(varProduct (2, 2, 2));
+console.log(varProduct (2, 2, 2, 2));
 
 //Problem C
 function arraySum(x) {
@@ -42,3 +33,13 @@ function arraySum(x) {
 }
 myArray = [1, 2, 6];
 console.log(arraySum(myArray));
+
+function parameterTest(...array) {
+    console.log(a,b);
+}
+
+parameterTest(1, 2);
+parameterTest(1); // Any variable not present is considered undefined
+parameterTest(1, 2, 3);
+// The rest operator gathers extra values into an array
+parameterTest(1, 2, 3, 4, 5, 6, 7);
